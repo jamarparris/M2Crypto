@@ -79,7 +79,7 @@ class _M2CryptoBuildExt(build_ext.build_ext):
         self.swig_opts.append('-modern')
 
         # Fedora does hat tricks.
-        if os.path.isfile('/etc/redhat-release'):
+        if os.path.isfile('/etc/redhat-release') or os.path.isfile('/etc/system-release-cpe'):
             if platform.architecture()[0] == '64bit':
                 self.swig_opts.append('-D__x86_64__')
             elif platform.architecture()[0] == '32bit':
